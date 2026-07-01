@@ -1,0 +1,59 @@
+# =============================================================================
+# Dependabot Configuration
+# =============================================================================
+# Watches:
+#   1. GitHub Actions versions (workflows pinned to @main pull module updates)
+#   2. The base/builder image tags referenced in src/cloudflared/Dockerfile
+#   3. Image references inside docker-compose*.yml files
+#
+# Tag bumps (e.g. golang 1.26-alpine -> 1.27-alpine) surface here as PRs and are
+# auto-merged by docker-maintenance.yml. Pure digest drift on existing tags is
+# handled by check-base-images.yml (daily cron).
+# =============================================================================
+
+version: 2
+updates:
+  # GitHub Actions
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "sunday"
+      time: "06:30"
+      timezone: "Etc/UTC"
+    labels:
+      - "dependencies"
+      - "github-actions"
+      - "dependabot"
+    commit-message:
+      prefix: "chore(ci)"
+
+  # Dockerfile base / builder images
+  - package-ecosystem: "docker"
+    directory: "/src/cloudflared"
+    schedule:
+      interval: "weekly"
+      day: "sunday"
+      time: "06:30"
+      timezone: "Etc/UTC"
+    labels:
+      - "dependencies"
+      - "docker"
+      - "dependabot"
+    commit-message:
+      prefix: "chore(deps)"
+
+  # Docker Compose images
+  - package-ecosystem: "docker-compose"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "sunday"
+      time: "06:30"
+      timezone: "Etc/UTC"
+    labels:
+      - "dependencies"
+      - "docker"
+      - "dependabot"
+    commit-message:
+      prefix: "chore(deps)"

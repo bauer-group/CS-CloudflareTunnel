@@ -1,0 +1,24 @@
+{
+  "$schema": "https://raw.githubusercontent.com/bauer-group/automation-templates/main/.github/config/docker-base-image-monitor/docker-base-images.schema.json",
+  "_description": "CS-CloudflareTunnel — tracks the upstream distroless cloudflared runtime base (the CVE-relevant layer) and the Go builder used for the static health probe. A digest move on either triggers a rebuild + release so the shipped image stays current with upstream security fixes.",
+  "images": [
+    {
+      "name": "cloudflared",
+      "image": "cloudflare/cloudflared",
+      "tag": "latest",
+      "variable": "CLOUDFLARED_DIGEST",
+      "description": "Upstream distroless cloudflared runtime base"
+    },
+    {
+      "name": "golang-alpine",
+      "image": "golang",
+      "tag": "1.26-alpine",
+      "variable": "GOLANG_ALPINE_DIGEST",
+      "description": "Go compiler for the static health probe"
+    }
+  ],
+  "settings": {
+    "commit-prefix": "chore(deps)",
+    "auto-create-variables": true
+  }
+}

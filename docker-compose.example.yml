@@ -1,0 +1,43 @@
+# =============================================================================
+# CS-CloudflareTunnel — Usage Example
+# =============================================================================
+# Usage: docker compose -f docker-compose.example.yml up -d
+#
+# Demonstrates the BAUER GROUP cloudflared image with a WORKING Docker
+# healthcheck. Unlike the stock cloudflare/cloudflared image (distroless, no
+# probe tool), this image ships a static /ready probe baked in — so the
+# container reports healthy/unhealthy and `depends_on: service_healthy` works.
+#
+# Prerequisites:
+#   - A Cloudflare Tunnel token (Zero Trust → Networks → Tunnels).
+#   - Public hostnames + ingress configured in the Cloudflare dashboard.
+# =============================================================================
+
+services:
+  cloudflared:
+    image: ${CLOUDFLARED_IMAGE:-ghcr.io/bauer-group/cs-cloudflaretunnel/cloudflared}:${CLOUDFLARED_VERSION:-latest}
+    container_name: ${STACK_NAME:-cloudflare-tunnel}
+    restart: unless-stopped
+    environment:
+      - TZ=${TIME_ZONE:-Etc/UTC}
+      - TUNNEL_TOKEN=${TUNNEL_TOKEN:?TUNNEL_TOKEN is required}
+    # ENTRYPOINT + CMD are baked into the image and already run:
+    #   cloudflared --no-autoupdate tunnel --metrics 0.0.0.0:2000 run
+    # The built-in HEALTHCHECK probes http://127.0.0.1:2000/ready, so no
+    # healthcheck override is needed here.
+    #
+    # To expose metrics for Prometheus, publish or scrape port 2000 within your
+    # Docker network (no host port is published by default).
+    logging:
+      driver: json-file
+      options:
+        max-size: "50m"
+        max-file: "3"
+    networks:
+      - local
+
+networks:
+  local:
+    driver: bridge
+    name: ${STACK_NAME:-cloudflare-tunnel}
+    enable_ipv6: true
