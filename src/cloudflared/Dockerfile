@@ -58,7 +58,7 @@ LABEL org.opencontainers.image.licenses="MIT"
 LABEL org.opencontainers.image.source="https://github.com/bauer-group/CS-CloudflareTunnel"
 LABEL org.opencontainers.image.url="https://github.com/bauer-group/CS-CloudflareTunnel"
 LABEL org.opencontainers.image.documentation="https://github.com/bauer-group/CS-CloudflareTunnel#readme"
-LABEL org.opencontainers.image.version="0.1.0"
+LABEL org.opencontainers.image.version="0.1.1"
 
 # ---------------------------------------------------------------------------
 # Health Probe (single static binary — distroless stays distroless)
