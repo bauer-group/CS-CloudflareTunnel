@@ -1,3 +1,9 @@
+## [0.1.5](https://github.com/bauer-group/CS-CloudflareTunnel/compare/v0.1.4...v0.1.5) (2026-07-23)
+
+### 🐛 Bug Fixes
+
+* **ci:** added the missing permissions block ([77848c3](https://github.com/bauer-group/CS-CloudflareTunnel/commit/77848c37e561641f206bb68c5b7b850b8564f50b))
+
 ## [0.1.4](https://github.com/bauer-group/CS-CloudflareTunnel/compare/v0.1.3...v0.1.4) (2026-07-10)
 
 ## [0.1.3](https://github.com/bauer-group/CS-CloudflareTunnel/compare/v0.1.2...v0.1.3) (2026-07-09)
