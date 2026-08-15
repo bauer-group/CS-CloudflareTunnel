@@ -1,3 +1,5 @@
+## [0.1.8](https://github.com/bauer-group/CS-CloudflareTunnel/compare/v0.1.7...v0.1.8) (2026-08-15)
+
 ## [0.1.7](https://github.com/bauer-group/CS-CloudflareTunnel/compare/v0.1.6...v0.1.7) (2026-08-14)
 
 ## [0.1.6](https://github.com/bauer-group/CS-CloudflareTunnel/compare/v0.1.5...v0.1.6) (2026-08-13)
