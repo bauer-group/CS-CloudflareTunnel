@@ -4,6 +4,8 @@ All notable changes to this project are documented here. This file is maintained
 automatically by [semantic-release](https://github.com/semantic-release/semantic-release)
 on every release to `main`.
 
+## [0.1.11](https://github.com/bauer-group/CS-CloudflareTunnel/compare/v0.1.10...v0.1.11) (2026-09-02)
+
 ## [0.1.10](https://github.com/bauer-group/CS-CloudflareTunnel/compare/v0.1.9...v0.1.10) (2026-08-31)
 
 ## [0.1.9](https://github.com/bauer-group/CS-CloudflareTunnel/compare/v0.1.8...v0.1.9) (2026-08-20)
