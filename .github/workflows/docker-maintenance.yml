@@ -1,7 +1,10 @@
 # =============================================================================
 # Docker Maintenance - Auto-merge Dependabot PRs
 # =============================================================================
-# Automatically merges Dependabot PRs for base image / builder updates.
+# Decides on every Dependabot PR, whatever its ecosystem: a patch update
+# merges only after docker-release.yml built the image on the PR (base /
+# builder image in src/cloudflared/); everything else stays open with an
+# annotation.
 # After merge, the docker-release.yml workflow is triggered which:
 # 1. Creates a semantic release
 # 2. Builds and pushes the new Docker image (cloudflared)
@@ -24,8 +27,10 @@ name: "🔧 Docker Maintenance"
 on:
   pull_request:
     types: [opened, synchronize, reopened, ready_for_review]
-    paths:
-      - 'src/cloudflared/Dockerfile'
+    # No paths filter: every Dependabot PR (docker, docker-compose, ...) gets
+    # a decision and an annotation instead of silently staying open. Whether
+    # it merges is decided by required-workflows below; GitHub Actions updates
+    # and changes under .github/ always stay open for review.
 
 permissions:
   contents: write
@@ -39,6 +44,8 @@ jobs:
       merge-method: 'squash'
       auto-approve: true
       # Merge only after this PR CI has passed on the PR head commit - it
-      # builds the image.
+      # builds the image. Its pull_request paths (src/**) cover the base and
+      # builder images in src/cloudflared/Dockerfile; a PR outside its paths
+      # stays open (not tested).
       required-workflows: '.github/workflows/docker-release.yml'
     secrets: inherit
