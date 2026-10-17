@@ -45,24 +45,61 @@ jobs:
       env-file: '.env.example'
 
   # ============================================
-  # Release Job (only on main branch push)
+  # Build Gate (every event - nothing is pushed)
   # ============================================
+  # Builds the image from this run's commit before anything is released: on
+  # a PR it is the CI docker-maintenance.yml waits for, on a push or a
+  # dispatch (the release after a Dependabot merge) it keeps a commit whose
+  # image does not build from being tagged as a version without an image.
+
+  docker-build-test:
+    name: "🔨 Validate Cloudflared Build"
+    needs: [validate-compose]
+    if: needs.validate-compose.result == 'success'
+    uses: bauer-group/automation-templates/.github/workflows/docker-build.yml@main
+    with:
+      publish-to: 'ghcr'
+      ghcr-image-name: 'bauer-group/cs-cloudflaretunnel/cloudflared'
+
+      auto-tags: true
+      dockerfile-path: './src/cloudflared/Dockerfile'
+      docker-context: './src/cloudflared'
+      platforms: 'linux/amd64'
+
+      push: false
+
+      security-scan: false
+      security-fail-on: 'CRITICAL'
+    secrets: inherit
+
+  # ============================================
+  # Release Job (push / dispatch, after the gate)
+  # ============================================
+  # semantic-release publishes from main only (branches: main), so a dispatch
+  # on any other branch releases nothing and every publish job is skipped.
 
   release:
     name: "📦 Create Semantic Release"
-    needs: [validate-compose]
+    needs: [validate-compose, docker-build-test]
     if: |
       (github.event_name == 'push' || github.event_name == 'workflow_dispatch') &&
-      needs.validate-compose.result == 'success'
+      needs.validate-compose.result == 'success' &&
+      needs.docker-build-test.result == 'success'
     uses: bauer-group/automation-templates/.github/workflows/modules-semantic-release.yml@main
     with:
       target-branch: 'main'
+      # Release the commit this run validated and built - the image job below
+      # builds it too. Without it the release takes the tip of main when it
+      # starts: a push that landed during the gate would be released untested
+      # and missing from the image. Pinned, semantic-release publishes nothing
+      # once main has moved on, and the run for the newer main releases both.
+      ref: ${{ github.sha }}
       dry-run: false
       force-release: ${{ inputs.force-release || false }}
     secrets: inherit
 
   # ============================================
-  # Cloudflared Docker Build Jobs
+  # Cloudflared Image Publish (only after a release)
   # ============================================
 
   docker-build-release:
@@ -93,26 +130,4 @@ jobs:
       security-fail-on: 'CRITICAL'
       generate-sbom: true
       sync-dockerhub-readme: true
-    secrets: inherit
-
-  docker-build-pr:
-    name: "🔨 Validate Cloudflared Build (PR)"
-    needs: [validate-compose]
-    if: |
-      github.event_name == 'pull_request' &&
-      needs.validate-compose.result == 'success'
-    uses: bauer-group/automation-templates/.github/workflows/docker-build.yml@main
-    with:
-      publish-to: 'ghcr'
-      ghcr-image-name: 'bauer-group/cs-cloudflaretunnel/cloudflared'
-
-      auto-tags: true
-      dockerfile-path: './src/cloudflared/Dockerfile'
-      docker-context: './src/cloudflared'
-      platforms: 'linux/amd64'
-
-      push: false
-
-      security-scan: false
-      security-fail-on: 'CRITICAL'
     secrets: inherit
