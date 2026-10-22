@@ -4,6 +4,13 @@ All notable changes to this project are documented here. This file is maintained
 automatically by [semantic-release](https://github.com/semantic-release/semantic-release)
 on every release to `main`.
 
+## [0.1.21](https://github.com/bauer-group/CS-CloudflareTunnel/compare/v0.1.20...v0.1.21) (2026-10-22)
+
+### 🔧 Maintenance
+
+* **deps:** update base image golang-alpine [skip ci] ([0a2100b](https://github.com/bauer-group/CS-CloudflareTunnel/commit/0a2100b45f72941f15b2b3ce0ab5b2de1d878887))
+* update Dockerfile version to 0.1.20 ([1fab0c9](https://github.com/bauer-group/CS-CloudflareTunnel/commit/1fab0c96a8dadd7fc3fdb30ddbb2c31fada9deb3))
+
 ## [0.1.20](https://github.com/bauer-group/CS-CloudflareTunnel/compare/v0.1.19...v0.1.20) (2026-10-21)
 
 ### 🔧 Maintenance
