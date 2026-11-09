@@ -4,6 +4,69 @@ All notable changes to this project are documented here. This file is maintained
 automatically by [semantic-release](https://github.com/semantic-release/semantic-release)
 on every release to `main`.
 
+## [0.1.26](https://github.com/bauer-group/CS-CloudflareTunnel/compare/v0.1.25...v0.1.26) (2026-11-06)
+
+### 🔧 Maintenance
+
+* **deps:** update base image golang-alpine [skip ci] ([d49c09b](https://github.com/bauer-group/CS-CloudflareTunnel/commit/d49c09ba47ab38ad71f60eb0547e9323a941d519))
+* update Dockerfile version to 0.1.25 ([b0b12b8](https://github.com/bauer-group/CS-CloudflareTunnel/commit/b0b12b81511996d2af4211975b9de970cfbc30fe))
+
+## [0.1.25](https://github.com/bauer-group/CS-CloudflareTunnel/compare/v0.1.24...v0.1.25) (2026-10-31)
+
+### 🔧 Maintenance
+
+* **deps:** update base image cloudflared [skip ci] ([cdcd575](https://github.com/bauer-group/CS-CloudflareTunnel/commit/cdcd575ee694bfb8f6417b77e65cc3dfe8993cfd))
+* update Dockerfile version to 0.1.24 ([8fcd6c2](https://github.com/bauer-group/CS-CloudflareTunnel/commit/8fcd6c28c31319e906565655a4db6b218d652922))
+
+## [0.1.24](https://github.com/bauer-group/CS-CloudflareTunnel/compare/v0.1.23...v0.1.24) (2026-10-29)
+
+### 🔧 Maintenance
+
+* **deps:** update base image cloudflared [skip ci] ([2a866d7](https://github.com/bauer-group/CS-CloudflareTunnel/commit/2a866d777db01aaafde78de0538991cc7dcaf03a))
+* update Dockerfile version to 0.1.23 ([7cef28b](https://github.com/bauer-group/CS-CloudflareTunnel/commit/7cef28ba5e6a35bc4ba3245aa419ed8f96c86fbb))
+
+## [0.1.23](https://github.com/bauer-group/CS-CloudflareTunnel/compare/v0.1.22...v0.1.23) (2026-10-27)
+
+### 🔧 Maintenance
+
+* **deps:** update base image cloudflared [skip ci] ([bc3491d](https://github.com/bauer-group/CS-CloudflareTunnel/commit/bc3491dbede029dfa15d175744975062ed51374e))
+* update Dockerfile version to 0.1.22 ([97295e6](https://github.com/bauer-group/CS-CloudflareTunnel/commit/97295e6198cc9c4092b345ceef4bd19cfc6ef0e0))
+
+## [0.1.22](https://github.com/bauer-group/CS-CloudflareTunnel/compare/v0.1.21...v0.1.22) (2026-10-26)
+
+### 🔧 Maintenance
+
+* **deps:** update base image cloudflared [skip ci] ([13ff0bd](https://github.com/bauer-group/CS-CloudflareTunnel/commit/13ff0bd1f4d14649bf1a023410f84a4b624e9049))
+* update Dockerfile version to 0.1.21 ([7f64dcc](https://github.com/bauer-group/CS-CloudflareTunnel/commit/7f64dccf2e90baa4d218357d087489f1090dab6b))
+
+## [0.1.21](https://github.com/bauer-group/CS-CloudflareTunnel/compare/v0.1.20...v0.1.21) (2026-10-22)
+
+### 🔧 Maintenance
+
+* **deps:** update base image golang-alpine [skip ci] ([0a2100b](https://github.com/bauer-group/CS-CloudflareTunnel/commit/0a2100b45f72941f15b2b3ce0ab5b2de1d878887))
+* update Dockerfile version to 0.1.20 ([1fab0c9](https://github.com/bauer-group/CS-CloudflareTunnel/commit/1fab0c96a8dadd7fc3fdb30ddbb2c31fada9deb3))
+
+## [0.1.20](https://github.com/bauer-group/CS-CloudflareTunnel/compare/v0.1.19...v0.1.20) (2026-10-21)
+
+### 🔧 Maintenance
+
+* **deps:** update base image cloudflared [skip ci] ([fc079f6](https://github.com/bauer-group/CS-CloudflareTunnel/commit/fc079f68d5c792ebe8502628a95009b2da4b057c))
+* update Dockerfile version to 0.1.19 ([bc9f895](https://github.com/bauer-group/CS-CloudflareTunnel/commit/bc9f895cc6a0579b629a9d9d09437266e3931989))
+
+## [0.1.19](https://github.com/bauer-group/CS-CloudflareTunnel/compare/v0.1.18...v0.1.19) (2026-10-20)
+
+### 🔧 Maintenance
+
+* **deps:** update base image cloudflared, golang-alpine [skip ci] ([bf32068](https://github.com/bauer-group/CS-CloudflareTunnel/commit/bf3206827c27b2a88d2b29ed8ae55b1aa488a78b))
+* update Dockerfile version to 0.1.18 ([2964591](https://github.com/bauer-group/CS-CloudflareTunnel/commit/29645914dc1abf59ab2f930897f6101408e6b1a5))
+
+## [0.1.18](https://github.com/bauer-group/CS-CloudflareTunnel/compare/v0.1.17...v0.1.18) (2026-10-16)
+
+### 🔧 Maintenance
+
+* **deps:** update base image cloudflared [skip ci] ([28d6233](https://github.com/bauer-group/CS-CloudflareTunnel/commit/28d6233327af8d8bcbd980c50cb00de5f312455c))
+* update Dockerfile version to 0.1.17 ([a759bf8](https://github.com/bauer-group/CS-CloudflareTunnel/commit/a759bf887dd386e90bd36582b587c24f48c8f398))
+
 ## [0.1.17](https://github.com/bauer-group/CS-CloudflareTunnel/compare/v0.1.16...v0.1.17) (2026-10-09)
 
 ### 🔧 Maintenance

@@ -1,10 +1,10 @@
 # =============================================================================
 # Docker Maintenance - Auto-merge Dependabot PRs
 # =============================================================================
-# Decides on every Dependabot PR, whatever its ecosystem: a patch update
-# merges only after docker-release.yml built the image on the PR (base /
-# builder image in src/cloudflared/); everything else stays open with an
-# annotation.
+# Decides on every Dependabot PR, whatever its ecosystem: a patch or minor
+# update merges only after docker-release.yml built the image on the PR
+# (base / builder image in src/cloudflared/); a major update (a 0.x minor
+# counts as major) and everything else stay open with an annotation.
 # The merge is made with the GITHUB_TOKEN, which starts no push workflow, so
 # after a merge this workflow dispatches docker-release.yml on main
 # (release-workflow) and waits for it; a release run that does not succeed
