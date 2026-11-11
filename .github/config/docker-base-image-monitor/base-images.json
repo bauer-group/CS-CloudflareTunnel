@@ -5,14 +5,14 @@
     {
       "name": "cloudflared",
       "image": "cloudflare/cloudflared",
-      "tag": "latest",
+      "dockerfile": "src/cloudflared/Dockerfile",
       "variable": "CLOUDFLARED_DIGEST",
       "description": "Upstream distroless cloudflared runtime base"
     },
     {
       "name": "golang-alpine",
       "image": "golang",
-      "tag": "1.26-alpine",
+      "dockerfile": "src/cloudflared/Dockerfile",
       "variable": "GOLANG_ALPINE_DIGEST",
       "description": "Go compiler for the static health probe"
     }
