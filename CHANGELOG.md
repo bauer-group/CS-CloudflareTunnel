@@ -4,6 +4,13 @@ All notable changes to this project are documented here. This file is maintained
 automatically by [semantic-release](https://github.com/semantic-release/semantic-release)
 on every release to `main`.
 
+## [0.1.29](https://github.com/bauer-group/CS-CloudflareTunnel/compare/v0.1.28...v0.1.29) (2026-11-18)
+
+### 🔧 Maintenance
+
+* **deps:** update base image cloudflared [skip ci] ([f151483](https://github.com/bauer-group/CS-CloudflareTunnel/commit/f151483c1002e72210f5edaba044d29ec5a0102d))
+* update Dockerfile version to 0.1.28 ([132ac20](https://github.com/bauer-group/CS-CloudflareTunnel/commit/132ac20d6a1d20e1060a14cb59de485df29350b7))
+
 ## [0.1.28](https://github.com/bauer-group/CS-CloudflareTunnel/compare/v0.1.27...v0.1.28) (2026-11-13)
 
 ### 🔧 Maintenance
